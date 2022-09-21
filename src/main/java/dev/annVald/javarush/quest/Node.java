@@ -10,8 +10,8 @@ public class Node {
 
     private String picture;
 
-    public Node (int id){
-        this.id=id;
+    public Node(int id) {
+        this.id = id;
         option1 = new Option();
         option2 = new Option();
     }
@@ -37,11 +37,11 @@ public class Node {
         return option2.getTextForChoice();
     }
 
-    public int getNextNodeIdForOption1(){
+    public int getNextNodeIdForOption1() {
         return option1.getNextNodeId();
     }
 
-    public int getNextNodeIdForOption2(){
+    public int getNextNodeIdForOption2() {
         return option2.getNextNodeId();
     }
 
@@ -74,7 +74,7 @@ public class Node {
         return Objects.hash(id, text, option1, option2, picture);
     }
 
-    public class Option{
+    public class Option {
         String textForChoice;
         int nextNodeId;
 

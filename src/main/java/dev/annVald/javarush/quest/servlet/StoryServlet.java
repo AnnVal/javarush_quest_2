@@ -27,17 +27,16 @@ public class StoryServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int nextNodeId =Integer.parseInt( request.getParameter("nextNode"));
+        int nextNodeId = Integer.parseInt(request.getParameter("nextNode"));
         Node node = story.getStory().get(nextNodeId);
-        request.setAttribute("storyNode",node);
-        if (node.getOption1Text()==null) {
+        request.setAttribute("storyNode", node);
+        if (node.getOption1Text() == null) {
             HttpSession session = request.getSession();
-            request.setAttribute("username",session.getAttribute("username") );
+            request.setAttribute("username", session.getAttribute("username"));
             getServletContext()
                     .getRequestDispatcher("/finish.jsp")
                     .forward(request, response);
-        }
-        else
+        } else
             getServletContext()
                     .getRequestDispatcher("/story.jsp")
                     .forward(request, response);
